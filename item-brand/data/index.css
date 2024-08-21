@@ -58,7 +58,7 @@ table,tr,td{
     border: 3px solid gray;
     border-collapse: collapse;
 }
-#toprow{
+#toprow,#toprow2{
     background-color: black;
     font-size: 30;
     color: white;
