@@ -44,12 +44,13 @@ function loadpage(data){
             a += 1;
             if(a<4){
                 parts += "<td>"+data[i][k]+"</td>";
-            } else if(a!=4){
-                parts2 += "<td>"+data[i]["images"]+"</td>"
-            } else {
-                parts2 += "<td><img src="+data[i][k][0]+"></img></td>"
+            } else if (a==4) {
+                parts2 += "<td><img src="+data[i]["images"][0]+"></img></td>"
+            } else if(a==5){
+                parts2 += "<td>"+data[i]["Ingredients"]+"</td>"
+            } else if(a==6){
+                parts2 += "<td>"+data[i]["Reason"]+"</td>"
             }
-        }
         rows += "<tr id=\"datarow\">"+parts+"</tr>"
         rows2 += "<tr id=\"datarow\">"+parts2+"</tr>"
     }
