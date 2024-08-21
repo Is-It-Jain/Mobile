@@ -26,7 +26,7 @@ function getData(){
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
     }
-    request.open("GET",url+"/?query="+document.getElementById("q").innerHTML)
+    request.open("GET",url+"?query="+document.getElementById("q").innerHTML)
     request.send()
 }
 function GETData(){
