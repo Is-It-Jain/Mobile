@@ -1,4 +1,4 @@
-const url="https://ccb9ccaa-640d-44a7-bf96-4ef3ac5bba3c-00-38vxd3ietij3j.worf.replit.dev:3000/";
+const url="https://ccb9ccaa-640d-44a7-bf96-4ef3ac5bba3c-00-38vxd3ietij3j.worf.replit.dev:3000";
 const url2="http://192.168.43.35:8000";
 function getData1(){
     var request = new XMLHttpRequest()
