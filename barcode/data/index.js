@@ -44,7 +44,7 @@ function loadpage(data){
             a += 1;
             if(a<4){
                 parts += "<td>"+data[i][k]+"</td>";
-            } else if(a<6){
+            } else if(a!=4){
                 parts2 += "<td>"+data[i][k]+"</td>"
             } else {
                 parts2 += "<td><img src="+data[i][k][0]+"></img></td>"
