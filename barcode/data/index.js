@@ -47,7 +47,7 @@ function loadpage(data){
             } else if(a<6){
                 parts2 += "<td>"+data[i][k]+"</td>"
             } else {
-                parts2 += "<td><img src="+data[i][k]+"></img></td>"
+                parts2 += "<td><img src="+data[i][k][0]+"></img></td>"
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>"
