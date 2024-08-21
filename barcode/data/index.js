@@ -45,14 +45,15 @@ function loadpage(data){
             if(a<4){
                 parts += "<td>"+data[i][k]+"</td>";
             } else if (a==4) {
-                parts2 += "<td><img src="+data[i]["images"][0]+"></img></td>"
+                parts2 += "<td><img src="+data[i]["images"][0]+"></img></td>";
             } else if(a==5){
-                parts2 += "<td>"+data[i]["Ingredients"]+"</td>"
+                parts2 += "<td>"+data[i]["Ingredients"]+"</td>";
             } else if(a==6){
-                parts2 += "<td>"+data[i]["Reason"]+"</td>"
+                parts2 += "<td>"+data[i]["Reason"]+"</td>";
             }
-        rows += "<tr id=\"datarow\">"+parts+"</tr>"
-        rows2 += "<tr id=\"datarow\">"+parts2+"</tr>"
+        }
+        rows += "<tr id=\"datarow\">"+parts+"</tr>";
+        rows2 += "<tr id=\"datarow\">"+parts2+"</tr>";
     }
     document.getElementById("toprow").outerHTML = rows
     document.getElementById("toprow2").outerHTML = rows2
