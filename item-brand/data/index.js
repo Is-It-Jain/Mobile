@@ -1,4 +1,4 @@
-const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/barcode/api";
+const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
 const url2="http://192.168.43.35:8000";
 function getData1(){
     var request = new XMLHttpRequest()

@@ -1,4 +1,4 @@
-const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/barcode/api";
+const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
 const url2="http://192.168.43.35:8001";
 function getData1(){
     var request = new XMLHttpRequest()
@@ -26,7 +26,7 @@ function getData(){
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
     }
-    request.open("GET",url+"/?query="+document.getElementById("q").innerHTML)
+    request.open("GET",url+"/query="+document.getElementById("q").innerHTML)
     request.send()
 }
 function GETData(){
