@@ -26,11 +26,7 @@ function getData(){
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
     }
-    if(window.location.href.startsWith("http://192.168.43.35")){
-        request.open("GET",url2+"/?query="+document.getElementById("q").innerHTML)
-    }else{
-        request.open("GET",url+"/?query="+document.getElementById("q").innerHTML)
-    }
+    equest.open("GET",url+"/?query="+document.getElementById("q").innerHTML)
     request.send()
 }
 function GETData(){
