@@ -60,9 +60,9 @@ table,tr,td{
 }
 #toprow,#toprow2{
     background-color: black;
-    font-size: 30;
+    font-size: 100;
     color: white;
 }
 #datarow{
-    font-size:20;
+    font-size:90;
 }
