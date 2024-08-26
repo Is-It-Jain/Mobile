@@ -5,7 +5,7 @@ function getData(){
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
     }
-    request.open("GET",url+"?q="+document.getElementById("q").innerHTML)
+    request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
     request.send()
 }
 function GETData(){
@@ -25,38 +25,36 @@ function bodyonload(){
     }
 }
 function tobarcode(){
-    window.location.replace("http://"+window.location.host+"/barcode")
+    window.location.replace("http://"+window.location.host+"/Mobile/barcode")
 }
 function toitembrand(){
-    window.location.replace("http://"+window.location.host+"/item-brand")
+    window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
 }
 function loadpage(data){
     startrow = "<tr id=\"datarow\"></tr>"
     rows = document.getElementById("toprow").outerHTML
-    rows2 = document.getElementById("toprow2").outerHTML
     console.log(rows)
-    console.log(rows2)
     for(i in data){
         parts = ""
-        parts2 = ""
         var a = 0
         for(k in data[i]){
             a += 1;
-            if(a<4){
-                parts += "<td>"+data[i][k]+"</td>";
-            } else if (a==4) {
-                parts2 += "<td><img src="+data[i]["images"][0]+"></img></td>";
+            if (a==1) {
+                parts += "<td id=\"colums14\"><img width=100 height=100 src="+data[i]["images"][0]+"></img></td>";
+            } else if(a==2){
+                parts += "<td id=\"colums14\">"+data[i]["brand"]+"</td>";
+            } else if(a==3){
+                parts += "<td id=\"colums14\">"+data[i]["item"]+"</td>";
+            } else if(a==4){
+                parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
-                parts2 += "<td>"+data[i]["Ingredients"]+"</td>";
+                parts += "<td id=\"colums56\">"+data[i]["Ingredients"]+"</td>";
             } else if(a==6){
-                parts2 += "<td>"+data[i]["Reason"]+"</td>";
+                parts += "<td>"+data[i]["Reason"]+"</td>";
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>";
-        rows2 += "<tr id=\"datarow\">"+parts2+"</tr>";
     }
     document.getElementById("toprow").outerHTML = rows
-    document.getElementById("toprow2").outerHTML = rows2
     console.log(rows)
-    console.log(rows2)
 }

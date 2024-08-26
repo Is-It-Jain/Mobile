@@ -58,11 +58,20 @@ table,tr,td{
     border: 3px solid gray;
     border-collapse: collapse;
 }
-#toprow,#toprow2{
+#toprow{
     background-color: black;
-    font-size: 100;
+    font-size: 50;
     color: white;
 }
 #datarow{
-    font-size:90;
+    font-size:40;
+    max-width: 20px;
+}
+#colums14{
+    font-size:50;
+    width:12.5%
+}
+#colums56{
+    font-size:25;
+    width:25%
 }
