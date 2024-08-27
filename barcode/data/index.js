@@ -31,7 +31,6 @@ function toitembrand(){
     window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
 }
 function loadpage(data){
-    startrow = "<tr id=\"datarow\"></tr>"
     rows = document.getElementById("toprow").outerHTML
     console.log(rows)
     for(i in data){
@@ -48,13 +47,24 @@ function loadpage(data){
             } else if(a==4){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
-                parts += "<td id=\"colums56\">"+data[i]["Ingredients"]+"</td>";
+                parts += "<td id=\"colums56\"><a class=\"larger\" id=\"ING"+i+"\"onclick=\"showING('"+data[i]["Ingredients"]+"','"+i+"')\">Show More</a></td>";
             } else if(a==6){
-                parts += "<td>"+data[i]["Reason"]+"</td>";
+                parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>";
     }
     document.getElementById("toprow").outerHTML = rows
     console.log(rows)
+}
+function showING(dat,id){
+    outerHTML = document.getElementById("ING"+id).outerHTML
+    outerHTML = "<div id=\"ING"+id+"\">"+dat+"</div><a class=\"larger\" id=\"ING"+id+"2\"onclick=\"hideING('"+id+"')\">Show Less</a>"
+    document.getElementById("ING"+id).outerHTML = outerHTML
+}
+function hideING(id){
+    outerHTML = document.getElementById("ING"+id+"2").outerHTML
+    dat = document.getElementById("ING"+id).innerHTML
+    document.getElementById("ING"+id+"2").outerHTML = "<a class=\"larger\" id=\"ING"+id+"\"onclick=\"showING('"+dat+"','"+id+"')\">Show More</a>"
+    document.getElementById("ING"+id).outerHTML = ""
 }
