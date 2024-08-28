@@ -48,9 +48,9 @@ function loadpage(data){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
                 parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
-                                +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients("+i+"')\">Show less</a></div>"+"</div>"
+                                +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>"
                             + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(10)
-                                +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients("+i+"')\">Show more</a></div>"
+                                +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients('"+i+"')\">Show more</a></div>"
                             +"<a class=\"larger\" id=\"ING"+i+"\"onclick=\"showING('"+data[i]["Ingredients"]+"','"+i+"')\">Show Ingredients</a></td>";
             
             } else if(a==6){
