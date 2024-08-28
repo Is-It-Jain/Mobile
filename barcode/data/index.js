@@ -47,7 +47,12 @@ function loadpage(data){
             } else if(a==4){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
-                parts += "<td id=\"colums56\"><a class=\"larger\" id=\"ING"+i+"\"onclick=\"showING('"+data[i]["Ingredients"]+"','"+i+"')\">Show Ingredients</a></td>";
+                parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
+                                +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients("+i+"')\">Show less</a></div>"+"</div>"
+                            + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(10)
+                                +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients("+i+"')\">Show more</a></div>"
+                            +"<a class=\"larger\" id=\"ING"+i+"\"onclick=\"showING('"+data[i]["Ingredients"]+"','"+i+"')\">Show Ingredients</a></td>";
+            
             } else if(a==6){
                 parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
             }
@@ -67,4 +72,28 @@ function hideING(id){
     dat = document.getElementById("ING"+id).innerHTML
     document.getElementById("ING"+id+"2").outerHTML = "<a class=\"larger\" id=\"ING"+id+"\"onclick=\"showING('"+dat+"','"+id+"')\">Show Ingredients</a>"
     document.getElementById("ING"+id).outerHTML = ""
+}
+
+function showMoreIngredients(id) {
+    var showMore = document.getElementById("ING-more-"+id);
+    if (showMore.style.display === "none") {
+        showMore.style.display = "block";
+    }
+
+    var showLess = document.getElementById("ING-less-"+id);
+    if (showLess.style.display === "block") {
+        showLess.style.display = "none";
+    }
+}
+
+function showLessIngredients(id) {
+    var showMore = document.getElementById("ING-more-"+id);
+    if (showMore.style.display === "block") {
+        showMore.style.display = "none";
+    }
+
+    var showLess = document.getElementById("ING-less-"+id);
+    if (showLess.style.display === "none") {
+        showLess.style.display = "block";
+    }
 }
