@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@angular/platform-browser": "^18.2.1",
+    "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.3",
+    "@zxing/ngx-scanner": "^18.0.1",
+    "mongodb": "^6.8.0"
+  },
+  "scripts": {
+    "start": "concurrently 'node barcode/api/server.js' 'node item-brand/api/server.js'"
+  }
+}
