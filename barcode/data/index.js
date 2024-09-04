@@ -20,6 +20,11 @@ function bodyonload(){
         outputarea.style.visibility = "visible";
         item.innerHTML = weburl.searchParams.get("query")
         getData()
+    }else if(weburl.searchParams.has("queries")){
+        document.getElementById("q").innerHTML = weburl.searchParams.get("queries")
+        outputarea.style.visibility = "visible";
+        item.innerHTML = weburl.searchParams.get("queries")
+        getData()
     }else{
         outputarea.style.visibility = "hidden";
     }

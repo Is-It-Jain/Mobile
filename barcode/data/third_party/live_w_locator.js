@@ -111,6 +111,8 @@ $(function() {
                 e.preventDefault();
                 Quagga.stop();
                 self._printCollectedResults();
+                document.getElementsByClassName("collector").
+                window.location.replace()
             });
 
             $(".controls .reader-config-group").on("change", "input, select", function(e) {
@@ -129,7 +131,7 @@ $(function() {
                 $ul = $("#result_strip ul.collector");
 
             results.forEach(function(result) {
-                var $li = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
+                var $li = $('<li><div class="thumbnail"><div class="caption"><h4 class="code"></h4></div></div></li>');
 
                 $li.find("img").attr("src", result.frame);
                 $li.find("h4.code").html(result.codeResult.code + " (" + result.codeResult.format + ")");
@@ -285,10 +287,9 @@ $(function() {
 
         if (App.lastResult !== code) {
             App.lastResult = code;
-            var $node = null, canvas = Quagga.canvas.dom.image;
+            var $node = null;
 
-            $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            $node.find("img").attr("src", canvas.toDataURL());
+            $node = $('<li><div class="thumbnail"><div class="caption"><h4 class="code"></h4></div></div></li>');
             $node.find("h4.code").html(code);
             $("#result_strip ul.thumbnails").prepend($node);
         }
