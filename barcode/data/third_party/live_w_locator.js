@@ -115,7 +115,7 @@ $(function() {
                 for(i in document.getElementsByClassName("code")){
                     parts += i + "a"
                 }
-                window.location.replace("https://is-it-jain.github.io/barcode/data.html?queries="+parts)
+                window.location.replace("https://is-it-jain.github.io/barcode/data?queries="+parts)
             });
 
             $(".controls .reader-config-group").on("change", "input, select", function(e) {
