@@ -111,8 +111,11 @@ $(function() {
                 e.preventDefault();
                 Quagga.stop();
                 self._printCollectedResults();
-                document.getElementsByClassName("collector").
-                window.location.replace()
+                var parts;
+                for(i in document.getElementsByClassName("code")){
+                    parts += i + "a"
+                }
+                window.location.replace("https://is-it-jain.github.io/barcode/data.html?queries="+parts)
             });
 
             $(".controls .reader-config-group").on("change", "input, select", function(e) {

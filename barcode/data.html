@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <script src="data/index.js"></script>
+        <link rel="stylesheet" href="data/index.css">
+    </head>
+    <body onload="bodyonload()">
+        <div id="nav">
+            <img src="../logo.jpg" width="300" height="100"></img>
+            <div class="title">Is It Jain?</div>
+            <button onclick="toitembrand()">
+                Item/Brand Search
+            </button>
+            <button onclick="tobarcode()">
+                ITEM Barcode Code Search
+            </button>
+            <!--<button>
+                About us
+            </button>-->
+        </div>
+        <script>
+            function backtonorm(){
+                window.location.replace('https://is-it-jain.github.io/barcode/data.html')
+            }
+        </script>
+        <div id="inputArea">
+            In case your item isn't here click the button to retry or try typing in the product on item/brand page
+            <button onclick="backtonorm()"></button>
+        </div>
+        <div id="outputarea">
+            Search: <span id="item"></span>
+            <div id="table">
+                <table id="table">
+                    <tr id="toprow">
+                        <td id="colums14">Image      </td>
+                        <td id="colums14">Brand      </td>
+                        <td id="colums14">Item       </td>
+                        <td id="colums14">Is It Jain?</td>
+                        <td>Ingredients</td>
+                        <td>Reason     </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="q" hidden>
+            
+        </div>
+        <div>
+            these are the only values that work right now.
+            <br>
+            8904063240286
+            <br>
+            096619114016
+            <br>
+            028000632519
+            <br>
+            028400528177
+            <br>
+            096619955596
+            <br>
+            028400043489
+            <br>
+            028400073257
+            <br>
+            028400073264
+            <br>
+            028400048026
+        </div>
+    </body>
+</html>
