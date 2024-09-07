@@ -211,14 +211,7 @@ $(function() {
             decoder: {
                 readers: function(value) {
                     if (value === 'ean_extended') {
-                        return [{
-                            format: "ean_reader",
-                            config: {
-                                supplements: [
-                                    'ean_5_reader', 'ean_2_reader'
-                                ]
-                            }
-                        }];
+                        return ["ean_reader"];
                     }
                     return ["upc_reader","ean_reader"];
                 }
