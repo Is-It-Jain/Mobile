@@ -1,4 +1,8 @@
 const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
+
+var ean_scanned = null;
+var upc_scanned = null;
+
 function getData(){
     var request = new XMLHttpRequest()
     request.responseText = "text/plain"
@@ -74,6 +78,10 @@ function showMoreIngredients(id) {
     }
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function showLessIngredients(id) {
     var showMore = document.getElementById("ING-more-"+id);
     if (showMore.style.display === "block") {
@@ -88,6 +96,8 @@ function showLessIngredients(id) {
 
 function showScanBarcode(){
     document.getElementById("camera").style.display = "block";
+    ean_scanned = null;
+    upc_scanned = null;
     const quaggaConf = {
         inputStream: {
             target: document.querySelector("#camera"),
@@ -105,15 +115,63 @@ function showScanBarcode(){
         },
     };
 
+    const quaggaConf2 = {
+        inputStream: {
+            target: document.querySelector("#camera"),
+            type: "LiveStream",
+            constraints: {
+                width: { min: 640 },
+                height: { min: 480 },
+                facingMode: "environment",
+                aspectRatio: { min: 1, max: 2 }
+            }
+        },
+        
+        decoder: {
+            readers: ['upc_reader'],
+            debug: {
+                drawBoundingBox: true,
+                showFrequency: false,
+                drawScanline: false,
+                showPattern: false
+            },
+            multiple: false
+        },
+    };
+
     Quagga.init(quaggaConf, function (err) {
         if (err) {
             return console.log(err);
         }
         Quagga.start();
     });
-
+    
+    
     Quagga.onDetected(function (result) {
         document.getElementById("query").value = result.codeResult.code;
-        alert("Detected barcode: " + result.codeResult.code);
+        if (ean_scanned == null){
+            ean_scanned = result.codeResult.code;
+        } else {
+            upc_scanned = result.codeResult.code;
+        }
     });
+    while(ean_scanned != null) {
+        await sleep(1000);
+    }
+    
+    Quagga.init(quaggaConf2, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        Quagga.start();
+    });
+
+    while(upc_scanned != null) {
+        await sleep(1000);
+    }
+
+    document.getElementById("query").value = upc_scanned + " " + ean_scanned;;
+    
+    
+    document.getElementById("camera").style.display = "none";
 }
