@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script src="data/index.js"></script>
+        <link rel="stylesheet" href="data/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body onload="bodyonload()">
+        <div id="nav">
+            <img src="../logo.jpg" width="300" height="100"></img>
+            <div class="title">Is It Jain?</div>
+            <!--<button onclick="toitembrand()">
+                Item/Brand Search
+            </button>
+            <button onclick="tobarcode()">
+                ITEM Barcode Code Search
+            </button>
+            <button>
+                About us
+            </button>-->
+        </div>
+        <div id="inputArea">
+            Item or Brand: 
+            <input id="query">
+            <button onclick="GETData()">Get Data</button>
+            <br>
+            ⚠️⚠️⚠️⚠️⚠️⚠️
+            <br>
+            WARNING IN CASE YOUR REQUEST 
+            <br>
+            SHOWS NOT FOUND PLEASE MAKE 
+            <br>
+            SURE IT IS SPELT CORRECTLY
+            <br>
+            
+            ⚠️⚠️⚠️⚠️⚠️⚠️
+        </div>
+        <div id="outputarea">
+            Search: <span id="item"></span>
+            <div id="table">
+                <table id="table">
+                    <tr id="toprow">
+                        <td id="colums14">Image      </td>
+                        <td id="colums14">Brand      </td>
+                        <td id="colums14">Item       </td>
+                        <td id="colums14">Is It Jain?</td>
+                        <td>Ingredients</td>
+                        <td>Reason     </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="q" hidden>
+            
+        </div>
+    </body>
+</html>
