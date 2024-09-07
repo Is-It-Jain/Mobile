@@ -213,10 +213,9 @@ $(function() {
                     if (value === 'upc') {
                         return ["upc_reader"];
                     }
-                    return ["ean_reader","upc_reader"];
+                    return ["ean_reader"];
                 }
             },
-            "multiple":true
         },
         state: {
             inputStream: {

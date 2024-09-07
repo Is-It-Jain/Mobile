@@ -31,25 +31,15 @@
         </div>
         <section id="container" class="container">
             <div class="controls">
-                <fieldset class="input-group">
-                    <button class="stop">Click When Barcode Found</button>
-                </fieldset>
+                <span>
+                    Change barcode type to EAN if it doesn't load
+                </span>
                 <fieldset class="reader-config-group">
                     <label>
                         <span>Barcode-Type</span>
                         <select name="decoder_readers">
-                            <option value="code_128" hidden>Code 128</option>
-                            <option value="code_39" hidden>Code 39</option>
-                            <option value="code_39_vin" hidden>Code 39 VIN</option>
-                            <option value="ean" selected="selected">EAN</option>
-                            <option value="ean_extended" hidden>EAN-extended</option>
-                            <option value="ean_8" hidden>EAN-8</option>
-                            <option value="upc">UPC</option>
-                            <option value="upc_e" hidden>UPC-E</option>
-                            <option value="codabar" hidden>Codabar</option>
-                            <option value="i2of5" hidden>Interleaved 2 of 5</option>
-                            <option value="2of5" hidden>Standard 2 of 5</option>
-                            <option value="code_93" hidden>Code 93</option>
+                            <option value="ean">EAN</option>
+                            <option value="upc" selected="selected">UPC</option>
                         </select>
                     </label>
                     <label>
@@ -65,7 +55,6 @@
                         </select>
                     </label>
                     <label hidden>
-                        <span>Patch-Size</span>
                         <select name="locator_patch-size">
                             <option value="x-small">x-small</option>
                             <option value="small">small</option>
@@ -75,15 +64,11 @@
                         </select>
                     </label>
                     <label hidden>
-                        <span>Half-Sample</span>
                         <input type="checkbox" name="locator_half-sample" />
                     </label>
                     <label hidden>
-                        <span>Workers</span>
                         <select name="numOfWorkers">
-                            <option value="0">0</option>
                             <option value="1">1</option>
-                            <option value="2">2</option>
                             <option value="4">4</option>
                             <option selected="selected" value="8">8</option>
                         </select>
