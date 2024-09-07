@@ -111,11 +111,6 @@ $(function() {
                 e.preventDefault();
                 Quagga.stop();
                 self._printCollectedResults();
-                var parts;
-                for(i in document.getElementsByClassName("code")){
-                    parts += i + "a"
-                }
-                window.location.replace("https://is-it-jain.github.io/barcode/found/?queries="+parts)
             });
 
             $(".controls .reader-config-group").on("change", "input, select", function(e) {
@@ -295,6 +290,7 @@ $(function() {
             $node = $('<li><div class="thumbnail"><div class="caption"><h4 class="code"></h4></div></div></li>');
             $node.find("h4.code").html(code);
             $("#result_strip ul.thumbnails").prepend($node);
+            window.location.replace("https://is-it-jain.github.io/barcode/found/?queries="+code)
         }
     });
 
