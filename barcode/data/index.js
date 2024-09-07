@@ -9,6 +9,7 @@ function getData(mode){
         var code = document.getElementById("q").innerHTML.toLowerCase()
         var code2 = code.substring(1)
         request.open("GET",url+"?q="+code2)
+        request.send()
     }
     request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
     request.send()
