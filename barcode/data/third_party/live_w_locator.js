@@ -211,11 +211,12 @@ $(function() {
             decoder: {
                 readers: function(value) {
                     if (value === 'upc') {
-                        return ["ucp_reader"];
+                        return ["upc_reader"];
                     }
-                    return ["ean_reader"];
+                    return ["ean_reader","upc_reader"];
                 }
-            }
+            },
+            multiple:true
         },
         state: {
             inputStream: {

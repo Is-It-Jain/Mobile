@@ -8,7 +8,7 @@ function getData(mode){
     if(mode=="upc?"){
         var code = document.getElementById("q").innerHTML.toLowerCase()
         code = code.substring(1)
-        request.open("GET",url+"?q="+)
+        request.open("GET",url+"?q="+code)
     }else{
         request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
     }
