@@ -50,16 +50,16 @@ function loadpage(data){
             } else if(a==3){
                 parts += "<td id=\"colums14\">"+data[i]["item"]+"</td>";
             } else if(a==4){
-                parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
+                parts += "<td id=\"colums14\">"+data[i]["is-it-jain?"]+"</td>";
             } else if(a==5){
-                parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
+                parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["ingredients"]
                                 +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>"
                             + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
                                 +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients('"+i+"')\">Show more</a></div>"
                             +"</td>";
             
             } else if(a==6){
-                parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
+                parts += "<td id=\"colums56\">"+data[i]["reason-jain"]+"</td>";
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>";
