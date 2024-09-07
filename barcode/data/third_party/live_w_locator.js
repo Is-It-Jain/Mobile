@@ -224,7 +224,7 @@ $(function() {
                         format: "upc_reader",
                         config: {}
                     },{
-                        format: "ean_8_reader",
+                        format: "ean_reader",
                         config: {}
                     }];
                 }
