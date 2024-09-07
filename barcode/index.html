@@ -37,34 +37,34 @@
                 <fieldset class="reader-config-group">
                     <label>
                         <span>Barcode-Type</span>
-                        <select name="decoder_readers">
-                            <option value="code_128" selected="selected">Code 128</option>
-                            <option value="code_39">Code 39</option>
-                            <option value="code_39_vin">Code 39 VIN</option>
+                        <select name="decoder_readers" hidden>
+                            <option value="code_128" hidden>Code 128</option>
+                            <option value="code_39" hidden>Code 39</option>
+                            <option value="code_39_vin" hidden>Code 39 VIN</option>
                             <option value="ean" selected="selected">EAN</option>
-                            <option value="ean_extended">EAN-extended</option>
-                            <option value="ean_8">EAN-8</option>
+                            <option value="ean_extended" hidden>EAN-extended</option>
+                            <option value="ean_8" hidden>EAN-8</option>
                             <option value="upc">UPC</option>
-                            <option value="upc_e">UPC-E</option>
-                            <option value="codabar">Codabar</option>
-                            <option value="i2of5">Interleaved 2 of 5</option>
-                            <option value="2of5">Standard 2 of 5</option>
-                            <option value="code_93">Code 93</option>
+                            <option value="upc_e" hidden>UPC-E</option>
+                            <option value="codabar" hidden>Codabar</option>
+                            <option value="i2of5" hidden>Interleaved 2 of 5</option>
+                            <option value="2of5" hidden>Standard 2 of 5</option>
+                            <option value="code_93" hidden>Code 93</option>
                         </select>
                     </label>
                     <label>
                         <span>Resolution (width)</span>
-                        <select name="input-stream_constraints">
+                        <select name="input-stream_constraints" hidden>
                             <option value="320x240">320px</option>
-                            <option value="640x480">640px</option>
+                            <option selected="selected" value="640x480">640px</option>
                             <option value="800x600">800px</option>
                             <option value="1280x720">1280px</option>
                             <option value="1600x960">1600px</option>
-                            <option selected="selected" value="1920x1080">1920px</option>
+                            <option value="1920x1080">1920px</option>
 
                         </select>
                     </label>
-                    <label>
+                    <label hidden>
                         <span>Patch-Size</span>
                         <select name="locator_patch-size">
                             <option value="x-small">x-small</option>
@@ -74,11 +74,11 @@
                             <option value="x-large">x-large</option>
                         </select>
                     </label>
-                    <label>
+                    <label hidden>
                         <span>Half-Sample</span>
-                        <input type="checkbox" checked="checked" name="locator_half-sample" />
+                        <input type="checkbox" name="locator_half-sample" />
                     </label>
-                    <label>
+                    <label hidden>
                         <span>Workers</span>
                         <select name="numOfWorkers">
                             <option value="0">0</option>

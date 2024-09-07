@@ -210,10 +210,10 @@ $(function() {
             },
             decoder: {
                 readers: function(value) {
-                    if (value === 'ean_extended') {
-                        return ["ean_reader"];
+                    if (value === 'upc') {
+                        return ["ucp_reader"];
                     }
-                    return ["upc_reader","ean_reader"];
+                    return ["ean_reader"];
                 }
             }
         },

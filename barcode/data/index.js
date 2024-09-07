@@ -1,11 +1,17 @@
 const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
-function getData(){
+function getData(mode){
     var request = new XMLHttpRequest()
     request.responseText = "text/plain"
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
     }
-    request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
+    if(mode=="upc?"){
+        var code = document.getElementById("q").innerHTML.toLowerCase()
+        code = code.substring(1)
+        request.open("GET",url+"?q="+)
+    }else{
+        request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
+    }
     request.send()
 }
 function GETData(){
@@ -19,12 +25,11 @@ function bodyonload(){
         document.getElementById("q").innerHTML = weburl.searchParams.get("query")
         outputarea.style.visibility = "visible";
         item.innerHTML = weburl.searchParams.get("query")
-        getData()
-    }else if(weburl.searchParams.has("queries")){
-        document.getElementById("q").innerHTML = weburl.searchParams.get("queries")
-        outputarea.style.visibility = "visible";
-        item.innerHTML = weburl.searchParams.get("queries")
-        getData()
+        if(item.innerHTML[0]=="0"){
+            getData("upc?")
+        }else{
+            getData("ean")
+        }
     }else{
         outputarea.style.visibility = "hidden";
     }
