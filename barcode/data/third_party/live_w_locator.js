@@ -216,7 +216,7 @@ $(function() {
                     return ["ean_reader","upc_reader"];
                 }
             },
-            multiple:true
+            "multiple":true
         },
         state: {
             inputStream: {
