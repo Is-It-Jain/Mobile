@@ -1,22 +1,47 @@
 const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
+const url2="https://world.openfoodfacts.org/api/v2/product/"
+function runBarcodeAPI(code1,code2){
+    var request1 = new XMLHttpRequest()
+    var request2 = new XMLHttpRequest()
+    request1.responseText = "text/plain"
+    request2.responseText = "text/plain"
+    request1.onload = (res) => {
+        if(JSON.parse(request1.responseText)["status"]==0){
+            request1.open("GET",url2+code2)
+            request1.send()
+        } else {
+            request2.open("GET",url+"2?data="+responseText)
+            request2.send()
+        }
+    }
+    request2.onload = (res) => {
+        loadpage(JSON.parse(request2.responseText))
+    }
+}
 function getData(mode){
     var request = new XMLHttpRequest()
     var first = 1
     request.responseText = "text/plain"
     request.onload = (res) => {
-        loadpage(JSON.parse(request.responseText))
+        if(res=="{}"){
+            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
+            request.send()
+            first = 2
+        }
+        if(res=="{}"&&first==2){
+            runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
+        }
         if(first == 1){
             request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
             request.send()
             first = 2
         }
+        loadpage(JSON.parse(request.responseText))
     }
-    if(mode=="upc?"){
-        var code = document.getElementById("q").innerHTML.toLowerCase()
-        var code2 = code.substring(1)
-        request.open("GET",url+"?q="+code2)
-        request.send()
-    }
+    var code = document.getElementById("q").innerHTML.toLowerCase()
+    var code2 = code.substring(1)
+    request.open("GET",url+"?q="+code2)
+    request.send()
 }
 function GETData(){
     if(window.location.search != undefined){
