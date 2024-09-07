@@ -220,13 +220,7 @@ $(function() {
                             }
                         }];
                     }
-                    return [{
-                        format: "upc_reader",
-                        config: {}
-                    },{
-                        format: "ean_reader",
-                        config: {}
-                    }];
+                    return ["upc_reader","ean_reader"];
                 }
             }
         },
