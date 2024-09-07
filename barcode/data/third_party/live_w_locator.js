@@ -221,7 +221,10 @@ $(function() {
                         }];
                     }
                     return [{
-                        format: value + "_reader",
+                        format: "upc_reader",
+                        config: {}
+                    },{
+                        format: "ean_8_reader",
                         config: {}
                     }];
                 }
