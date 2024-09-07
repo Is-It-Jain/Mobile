@@ -287,7 +287,7 @@ $(function() {
             $node = $('<li><div class="thumbnail"><div class="caption"><h4 class="code"></h4></div></div></li>');
             $node.find("h4.code").html(code);
             $("#result_strip ul.thumbnails").prepend($node);
-            window.location.replace("https://is-it-jain.github.io/barcode/found/?queries="+code)
+            window.location.replace("https://is-it-jain.github.io/barcode/found?query="+code)
         }
     });
 
