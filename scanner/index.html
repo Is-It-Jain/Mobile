@@ -6,7 +6,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>ZXing Scanner Demo</title>
+  <title>ZXing Scanner </title>
+  <script>
+    function running(){
+      if(document.getElementsByTagName("strong")[0]){
+        if(document.getElementsByTagName("strong")[0].innerHTML[0]=="0"){
+          window.location.replace("https://is-it-jain.github.io/Mobile/barcode/found/?query="+document.getElementsByTagName("strong")[0].innerHTML+"&double=1")
+        }else{
+          window.location.replace("https://is-it-jain.github.io/Mobile/barcode/found/?query="+document.getElementsByTagName("strong")[0].innerHTML+"&double=0")
+        }
+      }else{
+        running()
+      }
+    }
+  </script>
 
   <link rel="apple-touch-icon" sizes="144x144" href="./assets/icons/icon-144x144.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/icon-32x32.png">
@@ -14,10 +27,10 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="mask-icon" href="./assets/icons/safari-pinned-tab.svg" color="#e50630">
   <meta name="theme-color" content="#e50630">
-  <link href="./https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="./https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="./styles.fea3a4fc425ef0a0.css"></head>
-<body>
+<body onload="running()">
   <app-root class="mat-app-background"></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 <script src="./runtime.de0da83d116d6440.js" type="module"></script><script src="./polyfills.dc25fddfc7eb34c8.js" type="module"></script><script src="./main.1d652f585708237a.js" type="module"></script></body>
