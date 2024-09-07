@@ -1,9 +1,15 @@
 const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
 function getData(mode){
     var request = new XMLHttpRequest()
+    var first = 1
     request.responseText = "text/plain"
     request.onload = (res) => {
         loadpage(JSON.parse(request.responseText))
+        if(first == 1){
+            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
+            request.send()
+            first = 2
+        }
     }
     if(mode=="upc?"){
         var code = document.getElementById("q").innerHTML.toLowerCase()
@@ -11,8 +17,6 @@ function getData(mode){
         request.open("GET",url+"?q="+code2)
         request.send()
     }
-    request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
-    request.send()
 }
 function GETData(){
     if(window.location.search != undefined){
