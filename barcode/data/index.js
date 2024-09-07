@@ -7,11 +7,10 @@ function getData(mode){
     }
     if(mode=="upc?"){
         var code = document.getElementById("q").innerHTML.toLowerCase()
-        code = code.substring(1)
-        request.open("GET",url+"?q="+code)
-    }else{
-        request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
+        var code2 = code.substring(1)
+        request.open("GET",url+"?q="+code2)
     }
+    request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
     request.send()
 }
 function GETData(){
@@ -25,7 +24,7 @@ function bodyonload(){
         document.getElementById("q").innerHTML = weburl.searchParams.get("query")
         outputarea.style.visibility = "visible";
         item.innerHTML = weburl.searchParams.get("query")
-        if(item.innerHTML[0]=="0"){
+        if(weburl.searchParams.get("double").toString()=="1"){
             getData("upc?")
         }else{
             getData("ean")
@@ -41,6 +40,7 @@ function toitembrand(){
     window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
 }
 function loadpage(data){
+    console.log(data)
     rows = document.getElementById("toprow").outerHTML
     console.log(rows)
     for(i in data){
