@@ -23,13 +23,13 @@ function getData(mode){
     var first = 1
     request.responseText = "text/plain"
     request.onload = (res) => {
+        if(res=="{}"&&first==2){
+            runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
+        }
         if(res=="{}"){
             request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
             request.send()
             first = 2
-        }
-        if(res=="{}"&&first==2){
-            runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
         }
         if(first == 1){
             request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
