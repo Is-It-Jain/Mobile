@@ -10,7 +10,7 @@ function runBarcodeAPI(code1,code2){
         if(JSON.parse(request1.responseText)["status"]==0 && time==1){
             request1.open("GET",url2+code2)
             request1.send()
-            time==2
+            time=2
         }else if(JSON.parse(request1.responseText)["status"]==0&&time==2){
             
         } else {
@@ -21,10 +21,11 @@ function runBarcodeAPI(code1,code2){
     request2.onload = (res) => {
         loadpage(JSON.parse(request2.responseText))
     }
+    request1.open("GET",url2+code1)
+    request1.send()
 }
 function getData(mode){
     var request = new XMLHttpRequest()
-    var first = 1
     request.responseText = "text/plain"
     request.onload = (res) => {
         /*if(res=="{}"&&first==2){
@@ -45,7 +46,7 @@ function getData(mode){
             first = 2
         }*/
         if(JSON.parse(responseText)=={}){
-            
+            runBarcodeAPI(code,code2)
         }
     }
     var code = document.getElementById("q").innerHTML.toLowerCase()
