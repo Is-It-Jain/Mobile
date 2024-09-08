@@ -12,9 +12,11 @@ function runBarcodeAPI(code1,code2){
             request1.send()
             time=2
         }else if(JSON.parse(request1.responseText)["status"]==0&&time==2){
-            
+            console.log("no item")
+            alert("item doesnt exist")
         } else {
-            request2.open("GET",url+"2?data="+responseText)
+            console.log(JSON.parse(request1.responseText))
+            request2.open("GET",url+"2?data="+request1.responseText)
             request2.send()
         }
     }
