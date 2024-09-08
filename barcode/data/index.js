@@ -3,12 +3,16 @@ const url2="https://world.openfoodfacts.org/api/v2/product/"
 function runBarcodeAPI(code1,code2){
     var request1 = new XMLHttpRequest()
     var request2 = new XMLHttpRequest()
+    var time = 1
     request1.responseText = "text/plain"
     request2.responseText = "text/plain"
     request1.onload = (res) => {
-        if(JSON.parse(request1.responseText)["status"]==0){
+        if(JSON.parse(request1.responseText)["status"]==0 && time==1){
             request1.open("GET",url2+code2)
             request1.send()
+            time==2
+        }else if(JSON.parse(request1.responseText)["status"]==0&&time==2){
+            
         } else {
             request2.open("GET",url+"2?data="+responseText)
             request2.send()
@@ -40,6 +44,9 @@ function getData(mode){
             request.send()
             first = 2
         }*/
+        if(JSON.parse(responseText)=={}){
+            
+        }
     }
     var code = document.getElementById("q").innerHTML.toLowerCase()
     var code2 = code.substring(1)
