@@ -45,7 +45,7 @@ function getData(mode){
             request.send()
             first = 2
         }*/
-        if(JSON.parse(request.responseText)=={}){
+        if(request.responseText=="{}"){
             runBarcodeAPI(code,code2)
         }
     }
