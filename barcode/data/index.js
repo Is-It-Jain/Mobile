@@ -16,7 +16,18 @@ function runBarcodeAPI(code1,code2){
             alert("item doesnt exist")
         } else {
             console.log(JSON.parse(request1.responseText))
-            request2.open("GET",url+"2?data="+request1.responseText)
+            data = JSON.parse(request1.responseText)
+            data2 = {
+                "barcode":data["code"],
+                "data":{
+                    "catagories":data["product"]["categories"].split(", "),
+                    "images":[data["product"]["image_url"]],
+                    "ingredients":data["product"]["ingredients"],
+                    "name":data["product"]["product_name"],
+                    "brand":data["product"]["brands"]
+                }
+            }
+            request2.open("GET",url+"2?data="+JSON.stringify(data2))
             request2.send()
         }
     }
