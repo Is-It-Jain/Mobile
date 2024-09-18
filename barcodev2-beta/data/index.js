@@ -1,6 +1,14 @@
 const barcodeAPIURL = "https://world.openfoodfacts.org/api/v2/product/"
-const barcodePOSTURL = ""
-const barcodeGETURL = ""
+const barcodePOSTURL= "https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/v2/POSTDATA"
+const barcodeGETURL = "https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/v2/GETDATA"
+function loadpage(data){
+    var rows = document.getElementById("toprow")
+    var addition = "";
+    for(barcode in data){
+        addition += ""
+    }
+    rows.outerHTML = rows + additon
+}
 function check(i){
     var vegan = true
     var vegitarian = true
