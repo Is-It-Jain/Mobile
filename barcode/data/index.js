@@ -1,5 +1,6 @@
 const url="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api";
 const url2="https://world.openfoodfacts.org/api/v2/product/"
+const creaateItemurl="https://us-west-2.aws.data.mongodb-api.com/app/barcode-ofdsbkb/endpoint/api/v1/items";
 function loadpage(data){
     console.log(data)
     rows = document.getElementById("toprow").outerHTML
@@ -60,7 +61,7 @@ function runBarcodeAPI(code1,code2){
                     "brand":data["product"]["brands"]
                 }
             };
-            request2.open("POST",url+"2");
+            request2.open("POST",creaateItemurl);
             request2.send(JSON.stringify(data2));
         }
     }
