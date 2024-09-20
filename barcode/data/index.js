@@ -61,7 +61,7 @@ function runBarcodeAPI(code1,code2){
                     "brand":data["product"]["brands"]
                 }
             };
-            request2.open("POST",creaateItemurl);
+            request2.open("POST",url+"2");
             request2.send(JSON.stringify(data2));
         }
     }
