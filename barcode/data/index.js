@@ -34,22 +34,22 @@ function loadpage(data){
     console.log(rows)
 }
 function runBarcodeAPI(code1,code2){
-    var request1 = new XMLHttpRequest()
-    var request2 = new XMLHttpRequest()
-    var time = 1
-    request1.responseText = "text/plain"
-    request2.responseText = "text/plain"
+    var request1 = new XMLHttpRequest();
+    var request2 = new XMLHttpRequest();
+    var time = 1;
+    request1.responseText = "text/plain";
+    request2.responseText = "text/plain";
     request1.onload = (res) => {
         if(JSON.parse(request1.responseText)["status"]==0 && time==1){
-            request1.open("GET",url2+code2)
-            request1.send()
-            time=2
+            request1.open("GET",url2+code2);
+            request1.send();
+            time=2;
         }else if(JSON.parse(request1.responseText)["status"]==0&&time==2){
-            console.log("no item")
-            alert("item doesnt exist")
+            console.log("no item");
+            alert("item doesnt exist");
         } else {
-            console.log(JSON.parse(request1.responseText))
-            data = JSON.parse(request1.responseText)
+            console.log(JSON.parse(request1.responseText));
+            data = JSON.parse(request1.responseText);
             data2 = {
                 "barcode":data["code"],
                 "data":{
@@ -59,20 +59,20 @@ function runBarcodeAPI(code1,code2){
                     "name":data["product"]["product_name"],
                     "brand":data["product"]["brands"]
                 }
-            }
-            request2.open("POST",url+"2")
-            request2.send(JSON.stringify(data2))
+            };
+            request2.open("POST",url+"2");
+            request2.send(JSON.stringify(data2));
         }
     }
     request2.onload = (res) => {
-        loadpage(JSON.parse(request2.responseText))
+        loadpage(JSON.parse(request2.responseText));
     }
-    request1.open("GET",url2+code1)
-    request1.send()
+    request1.open("GET",url2+code1);
+    request1.send();
 }
 function getData(mode){
-    var request = new XMLHttpRequest()
-    request.responseText = "text/plain"
+    var request = new XMLHttpRequest();
+    request.responseText = "text/plain";
     request.onload = (res) => {
         /*if(res=="{}"&&first==2){
             runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
@@ -92,31 +92,31 @@ function getData(mode){
             first = 2
         }*/
         if(request.responseText=="{}"){
-            runBarcodeAPI(code,code2)
+            runBarcodeAPI(code,code2);
         } else {
-            loadpage(JSON.parse(request.responseText))
+            loadpage(JSON.parse(request.responseText));
         }
     }
-    var code = document.getElementById("q").innerHTML.toLowerCase()
-    var code2 = code.substring(1)
-    request.open("GET",url+"?q="+code)
-    request.send()
+    var code = document.getElementById("q").innerHTML.toLowerCase();
+    var code2 = code.substring(1);
+    request.open("GET",url+"?q="+code);
+    request.send();
 }
 function GETData(){
     if(window.location.search != undefined){
-        window.location.replace(window.location.href.split("?")[0]+"?query="+document.getElementById("query").value)
+        window.location.replace(window.location.href.split("?")[0]+"?query="+document.getElementById("query").value);
     }
 }
 function bodyonload(){
     var weburl = new URL(window.location.href)
     if(weburl.searchParams.has("query")){
-        document.getElementById("q").innerHTML = weburl.searchParams.get("query")
+        document.getElementById("q").innerHTML = weburl.searchParams.get("query");
         outputarea.style.visibility = "visible";
-        item.innerHTML = weburl.searchParams.get("query")
+        item.innerHTML = weburl.searchParams.get("query");
         if(weburl.searchParams.get("double").toString()=="1"){
-            getData("upc?")
+            getData("upc?");
         }else{
-            getData("ean")
+            getData("ean");
         }
     }else{
         outputarea.style.visibility = "hidden";
