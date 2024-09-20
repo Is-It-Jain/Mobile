@@ -60,7 +60,7 @@ function runBarcodeAPI(code1,code2){
                     "brand":data["product"]["brands"]
                 }
             }
-            request2.open("GET",url+"2?data="+JSON.stringify(data2))
+            request2.open("GET",url+"2")
             request2.send()
         }
     }
@@ -93,6 +93,8 @@ function getData(mode){
         }*/
         if(request.responseText=="{}"){
             runBarcodeAPI(code,code2)
+        } else {
+            loadpage(JSON.parse(request.responseText))
         }
     }
     var code = document.getElementById("q").innerHTML.toLowerCase()
