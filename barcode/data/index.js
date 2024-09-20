@@ -61,7 +61,7 @@ function runBarcodeAPI(code1,code2){
                 }
             }
             request2.open("POST",url+"2")
-            request2.send(JSON.stringify(request1.responseText))
+            request2.send(JSON.stringify(data2))
         }
     }
     request2.onload = (res) => {
