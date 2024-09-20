@@ -61,7 +61,7 @@ function runBarcodeAPI(code1,code2){
                     "brand":data["product"]["brands"]
                 }
             };
-            request2.open("POST",url+"2");
+            request2.open("POST",creaateItemurl);
             request2.send(JSON.stringify(data2));
         }
     }
@@ -75,23 +75,6 @@ function getData(mode){
     var request = new XMLHttpRequest();
     request.responseText = "text/plain";
     request.onload = (res) => {
-        /*if(res=="{}"&&first==2){
-            runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
-        }else{
-            loadpage(JSON.parse(request.responseText))
-        }
-        if(res=="{}"){
-            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
-            request.send()
-            first = 2
-        }else{
-            loadpage(JSON.parse(request.responseText))
-        }
-        if(first == 1){
-            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
-            request.send()
-            first = 2
-        }*/
         if(request.responseText=="{}"){
             runBarcodeAPI(code,code2);
         } else {
