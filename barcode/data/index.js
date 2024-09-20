@@ -60,8 +60,8 @@ function runBarcodeAPI(code1,code2){
                     "brand":data["product"]["brands"]
                 }
             }
-            request2.open("GET",url+"2")
-            request2.send()
+            request2.open("POST",url+"2")
+            request2.send(JSON.stringify(request1.responseText))
         }
     }
     request2.onload = (res) => {
