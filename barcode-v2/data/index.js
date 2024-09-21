@@ -54,7 +54,7 @@ function runBarcodeAPI(code1,code2){
             var categories = data["product"]["categories_tags"];
             var itemCategories = "";
             for (i=0; i< categories.length; i++) {
-                itemCategories += categories[i].substring(2).replace("-", " ") + ", ";
+                itemCategories += categories[i].substring(3).replace("-", " ") + ", ";
             }
             data2 = {
                 "barcode":data["code"],
@@ -81,23 +81,6 @@ function getData(mode){
     var request = new XMLHttpRequest();
     request.responseText = "text/plain";
     request.onload = (res) => {
-        /*if(res=="{}"&&first==2){
-            runBarcodeAPI(document.getElementById("q").innerHTML.toLowerCase(),code2)
-        }else{
-            loadpage(JSON.parse(request.responseText))
-        }
-        if(res=="{}"){
-            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
-            request.send()
-            first = 2
-        }else{
-            loadpage(JSON.parse(request.responseText))
-        }
-        if(first == 1){
-            request.open("GET",url+"?q="+document.getElementById("q").innerHTML.toLowerCase())
-            request.send()
-            first = 2
-        }*/
         if(request.responseText=="{}"){
             runBarcodeAPI(code,code2);
         } else {
