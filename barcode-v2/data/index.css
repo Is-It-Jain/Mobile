@@ -3,7 +3,14 @@
     background-color: lightgreen;
     text-align: center;
     border-color: black;
-    font-size: 75;
+    font-size: 65;
+}
+
+#nav description{
+    background-color: lightgreen;
+    text-align: center;
+    border-color: black;
+    font-size: 20;
 }
 #nav button {
     background-color: black;
