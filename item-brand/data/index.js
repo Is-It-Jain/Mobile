@@ -47,7 +47,8 @@ function loadpage(data){
             } else if(a==4){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
-                if(data[i]["Ingredients"] == undefined || data[i]["Ingredients"] == null){
+                if(data[i]["Ingredients"] == undefined || data[i]["Ingredients"] == null 
+                    || data[i]["Ingredients"] == "" || data[i]["Ingredients"] == "{}") {
                     parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">Unaware of Ingredients</div>"
                             +"</td>";
                 } else {
