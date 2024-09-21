@@ -27,7 +27,7 @@ function loadpage(data){
                     try {
                         parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
                                 +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>";
-                        parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
+                                + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
                                 +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients('"+i+"')\">Show more</a></div>"
                             +"</td>";
                     } catch (e) {
