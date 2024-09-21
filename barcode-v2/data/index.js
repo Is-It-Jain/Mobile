@@ -51,10 +51,15 @@ function runBarcodeAPI(code1,code2){
         } else {
             console.log(JSON.parse(request1.responseText));
             data = JSON.parse(request1.responseText);
+            var categories = data["product"]["categories_tags"];
+            var itemCategories = "";
+            for (i=0; i< categories.length; i++) {
+                itemCategories += categories[i].substring(2).replace("-", " ") + ", ";
+            }
             data2 = {
                 "barcode":data["code"],
                 "data":{
-                    "categories":data["product"]["categories"].split(", "),
+                    "categories":data["product"]["categories_tags"],
                     "images":[data["product"]["image_url"]],
                     "ingredients":data["product"]["ingredients"],
                     "name":data["product"]["product_name_en"],
