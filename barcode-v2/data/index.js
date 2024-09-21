@@ -59,7 +59,7 @@ function runBarcodeAPI(code1,code2){
             data2 = {
                 "barcode":data["code"],
                 "data":{
-                    "categories":data["product"]["categories_tags"],
+                    "categories":itemCategories,
                     "images":[data["product"]["image_url"]],
                     "ingredients":data["product"]["ingredients"],
                     "name":data["product"]["product_name_en"],
