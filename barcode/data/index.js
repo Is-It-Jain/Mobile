@@ -65,7 +65,7 @@ function runBarcodeAPI(code1,code2){
                 itemCategories += categories[i].substring(3).replace("-", " ") + ", ";
             }
             data2 = {
-                "barcode":data["code"],
+                "barcode":code2,
                 "data":{
                     "categories":itemCategories,
                     "images":[data["product"]["image_url"]],
