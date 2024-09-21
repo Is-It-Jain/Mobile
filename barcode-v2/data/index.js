@@ -26,7 +26,11 @@ function loadpage(data){
                             +"</td>";
             
             } else if(a==6){
-                parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
+                if (data[i]["Reason"] != undefined) {
+                    parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
+                } else if (data[i]["reason-non-jain"] != undefined) {
+                    parts += "<td id=\"colums56\">"+data[i]["reason-non-jain"]+"</td>";
+                }
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>";
@@ -68,6 +72,7 @@ function runBarcodeAPI(code1,code2){
                 }
             };
             request2.open("POST",creaateItemurl);
+            time = 1;
             request2.send(JSON.stringify(data2));
         }
     }
