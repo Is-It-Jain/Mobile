@@ -25,7 +25,7 @@ function bodyonload(){
     }
 }
 function tobarcode(){
-    window.location.replace("http://"+window.location.host+"/Mobile/barcode-v2")
+    window.location.replace("http://"+window.location.host+"/Mobile/barcode")
 }
 function toitembrand(){
     window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
