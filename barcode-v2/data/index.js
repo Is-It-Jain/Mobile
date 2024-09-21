@@ -57,7 +57,7 @@ function runBarcodeAPI(code1,code2){
                     "categories":data["product"]["categories"].split(", "),
                     "images":[data["product"]["image_url"]],
                     "ingredients":data["product"]["ingredients"],
-                    "name":data["product"]["product_name"],
+                    "name":data["product"]["product_name_en"],
                     "brand":data["product"]["brands"],
                     "ingredients_en":data["product"]["ingredients_text_en"]
                 }
