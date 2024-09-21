@@ -19,6 +19,9 @@ function loadpage(data){
             } else if(a==4){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
+                if(data[i]["Ingredients"] == undefined || data[i]["Ingredients"] == null){
+                    data[i]["Ingredients"] = "";
+                }
                 parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
                                 +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>"
                             + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
