@@ -77,7 +77,7 @@ function runBarcodeAPI(code1,code2){
         }
     }
     request2.onload = (res) => {
-        loadpage(JSON.parse(request2.responseText));
+        loadpage(JSON.parse(res));
     }
     request1.open("GET",url2+code1);
     request1.send();
