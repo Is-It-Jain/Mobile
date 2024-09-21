@@ -5,9 +5,18 @@
     border-color: black;
     font-size: 75;
 }
+
+#nav .description{
+    background-color: lightgreen;
+    text-align: center;
+    border-color: black;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 20;
+}
 #nav button {
-    background-color: black;
-    font-size:50;
+    background-color: blue;
+    font-size:30;
     color:white;
     size-adjust: 1000%;
 }
