@@ -68,9 +68,14 @@ function runBarcodeAPI(code1,code2){
             data = JSON.parse(request1.responseText);
             var categories = data["product"]["categories_tags"];
             var itemCategories = "";
-            for (i=0; i< categories.length; i++) {
-                itemCategories += categories[i].substring(3).replace("-", " ") + ", ";
+            try {
+                for (i=0; i< categories.length; i++) {
+                    itemCategories += categories[i].substring(3).replace("-", " ") + ", ";
+                }
+            } catch (e) {
+                console.log("ignroing error: "+ e);
             }
+
             data2 = {
                 "barcode":code1,
                 "data":{
