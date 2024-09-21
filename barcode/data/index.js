@@ -24,11 +24,17 @@ function loadpage(data){
                     parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">Unaware of Ingredients</div>"
                             +"</td>";
                 } else {
-                    parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
+                    try {
+                        parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
                                 +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>";
-                    parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
+                        parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
                                 +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients('"+i+"')\">Show more</a></div>"
                             +"</td>";
+                    } catch (e) {
+                        parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">Unaware of Ingredients</div>"
+                            +"</td>";
+                    }
+                    
                 }
             } else if(a==6){
                 if (data[i]["Reason"] != undefined) {
