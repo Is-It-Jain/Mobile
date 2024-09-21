@@ -20,14 +20,15 @@ function loadpage(data){
                 parts += "<td id=\"colums14\">"+data[i]["Is_It_Jain?"]+"</td>";
             } else if(a==5){
                 if(data[i]["Ingredients"] == undefined || data[i]["Ingredients"] == null){
-                    data[i]["Ingredients"] = "";
-                }
-                parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
-                                +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>"
-                            + "<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
+                    parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">Unaware of Ingredients</div>"
+                            +"</td>";
+                } else {
+                    parts += "<td id=\"colums56\"><div style=\"display:none\"id=\"ING-more-"+i+"\">"+data[i]["Ingredients"]
+                                +" <a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showLessIngredients('"+i+"')\">Show less</a></div>"+"</div>";
+                    parts +="<div style=\"display:block\"id=\"ING-less-"+i+"\">"+data[i]["Ingredients"].substring(0,20)
                                 +"...<a class=\"larger\" id=\"a-ING"+i+"\"onclick=\"showMoreIngredients('"+i+"')\">Show more</a></div>"
                             +"</td>";
-            
+                }
             } else if(a==6){
                 if (data[i]["Reason"] != undefined) {
                     parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
