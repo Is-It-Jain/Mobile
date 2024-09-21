@@ -25,7 +25,7 @@ function bodyonload(){
     }
 }
 function tobarcode(){
-    window.location.replace("http://"+window.location.host+"/Mobile/barcode")
+    window.location.replace("http://"+window.location.host+"/Mobile/barcode-v2")
 }
 function toitembrand(){
     window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
@@ -54,7 +54,11 @@ function loadpage(data){
                             +"</td>";
             
             } else if(a==6){
-                parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
+                if (data[i]["Reason"] != undefined) {
+                    parts += "<td id=\"colums56\">"+data[i]["Reason"]+"</td>";
+                } else if (data[i]["reason-non-jain"] != undefined) {
+                    parts += "<td id=\"colums56\">"+data[i]["reason-non-jain"]+"</td>";
+                }
             }
         }
         rows += "<tr id=\"datarow\">"+parts+"</tr>";
