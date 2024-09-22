@@ -82,9 +82,9 @@ function runBarcodeAPI(code1,code2){
                     "categories":itemCategories,
                     "images":[data["product"]["image_url"]],
                     "ingredients":data["product"]["ingredients"],
-                    "name":data["product"]["product_name_en"],
-                    "brand":data["product"]["brands"],
-                    "ingredients_en":data["product"]["ingredients_text_en"]
+                    "ingredients2":data["product"]["ingredients_text_en"],
+                    "name":data["product"]["product_name"],
+                    "brand":data["product"]["brands"]
                 }
             };
             request2.open("POST",creaateItemurl);
