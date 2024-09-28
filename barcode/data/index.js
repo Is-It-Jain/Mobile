@@ -162,3 +162,6 @@ function showLessIngredients(id) {
         showLess.style.display = "block";
     }
 }
+function toaboutus(){
+    window.location.replace("http://"+window.location.host+"/Mobile/about")
+}
