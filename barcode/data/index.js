@@ -134,10 +134,10 @@ function bodyonload(){
     }
 }
 function tobarcode(){
-    window.location.replace("http://"+window.location.host+"/Mobile/barcode")
+    window.location.replace("http://"+window.location.host+"/barcode")
 }
 function toitembrand(){
-    window.location.replace("http://"+window.location.host+"/Mobile/item-brand")
+    window.location.replace("http://"+window.location.host+"/item-brand")
 }
 function showMoreIngredients(id) {
     var showMore = document.getElementById("ING-more-"+id);
@@ -163,5 +163,5 @@ function showLessIngredients(id) {
     }
 }
 function toaboutus(){
-    window.location.replace("http://"+window.location.host+"/Mobile/about")
+    window.location.replace("http://"+window.location.host+"/about")
 }
